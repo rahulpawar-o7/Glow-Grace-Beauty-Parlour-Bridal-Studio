@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Glow &amp; Grace — Beauty Parlour &amp; Bridal Studio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pk: #FEABAB;
+            --li: #DB93B8;
+            --vi: #A973C2;
+            --bl: #9DC5C5;
+            --pe: #FFDBA5;
+            --tx: #3b2340;
+            --mu: #7a6580;
+            --bg: #FFF8F5;
+            --dp: #7b4a96;
+            color-scheme: light;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0
+        }
+
+        body {
+            font-family: Poppins, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--tx);
+            line-height: 1.65;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            line-height: 1.1;
+            font-weight: 700
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer
+        }
+
+        .w {
+            max-width: 1140px;
+            margin: auto;
+            padding: 0 20px
+        }
+
+        section {
+            padding: 80px 0
+        }
+
+        header {
+            position: sticky;
+            top: env(safe-area-inset-top, 0px);
+            z-index: 30;
+            background: rgba(255, 248, 245, .92);
+            backdrop-filter: blur(10px);
+            transition: .3s
+        }
+
+        header.sc {
+            box-shadow: 0 6px 24px rgba(169, 115, 194, .18)
+        }
+
+        .nv {
+            display: flex;
+            align-items: center;
+            height: 72px;
+            gap: 26px
+        }
+
+        .lg {
+            font: 700 27px 'Cormorant Garamond';
+            color: var(--dp)
+        }
+
+        .lg b {
+            color: var(--li)
+        }
+
+        nav {
+            display: flex;
+            gap: 26px;
+            margin-left: auto;
+            font-size: 14.5px;
+            font-weight: 500
+        }
+
+        nav a {
+            position: relative;
+            padding: 4px 0
+        }
+
+        nav a:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background: var(--vi);
+            transition: .3s
+        }
+
+        nav a:hover:after,
+        nav a.on:after {
+            width: 100%
+        }
+
+        .bg {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: var(--dp);
+            margin-left: auto
+        }
+
+        .btn {
+            display: inline-block;
+            border: 0;
+            cursor: pointer;
+            font: 600 14px Poppins;
+            padding: 13px 28px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--li), var(--vi));
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(169, 115, 194, .4);
+            position: relative;
+            overflow: hidden;
+            transition: .3s
+        }
+
+        .btn:hover {
+            transform: translateY(-3px)
+        }
+
+        .btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -70%;
+            width: 40%;
+            height: 100%;
+            background: rgba(255, 255, 255, .4);
+            transform: skewX(-20deg);
+            transition: .6s
+        }
+
+        .btn:hover:before {
+            left: 130%
+        }
+
+        .btn.o {
+            background: none;
+            color: var(--dp);
+            border: 1.5px solid var(--vi);
+            box-shadow: none
+        }
+
+        .ph {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-image: var(--i), var(--g);
+            background-size: cover;
+            background-position: center;
+            transition: transform .8s
+        }
+
+        .ph:not(.has):after {
+            content: attr(data-n);
+            position: absolute;
+            inset: auto 0 14px;
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, .9)
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 60px 0 90px;
+            background: radial-gradient(circle at 85% 20%, #FFDBA5 0, transparent 45%), radial-gradient(circle at 5% 90%, #9DC5C5 0, transparent 40%), var(--bg)
+        }
+
+        .bb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: .5;
+            animation: fl 9s ease-in-out infinite
+        }
+
+        @keyframes fl {
+            50% {
+                transform: translate(0, -22px)
+            }
+        }
+
+        .hg {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 44px;
+            align-items: center;
+            position: relative
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 12.5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dp);
+            background: rgba(255, 255, 255, .7);
+            padding: 6px 16px;
+            border-radius: 30px;
+            border: 1px solid var(--li)
+        }
+
+        .hero h1 {
+            font-size: clamp(46px, 7vw, 82px);
+            margin: 18px 0
+        }
+
+        h1 em,
+        h2 em {
+            font-style: italic;
+            color: var(--vi)
+        }
+
+        .hero p {
+            color: var(--mu);
+            max-width: 480px;
+            margin-bottom: 28px
+        }
+
+        .aw {
+            position: relative;
+            max-width: 430px;
+            margin: auto;
+            width: 100%
+        }
+
+        .arch {
+            aspect-ratio: 3/4;
+            border-radius: 999px 999px 28px 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(169, 115, 194, .35);
+            border: 8px solid #fff
+        }
+
+        .fb {
+            position: absolute;
+            background: #fff;
+            border-radius: 40px;
+            padding: 9px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 14px 30px rgba(169, 115, 194, .28);
+            animation: fl 5s ease-in-out infinite
+        }
+
+        .mq {
+            background: linear-gradient(90deg, var(--vi), var(--li), var(--pk));
+            color: #fff;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 14px 0;
+            font: 600 22px 'Cormorant Garamond'
+        }
+
+        .mq div {
+            display: inline-block;
+            animation: m 30s linear infinite
+        }
+
+        .mq span {
+            margin: 0 26px
+        }
+
+        @keyframes m {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .sh {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 46px
+        }
+
+        .sh small {
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 12.5px;
+            color: var(--vi);
+            font-weight: 600
+        }
+
+        .sh h2 {
+            font-size: clamp(34px, 5vw, 52px);
+            margin: 8px 0
+        }
+
+        .sh p {
+            color: var(--mu)
+        }
+
+        .gr {
+            display: grid;
+            gap: 24px
+        }
+
+        .g3 {
+            grid-template-columns: repeat(3, 1fr)
+        }
+
+        .g2 {
+            grid-template-columns: 1fr 1fr
+        }
+
+        .sv {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(169, 115, 194, .14);
+            transition: .4s
+        }
+
+        .sv:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 44px rgba(169, 115, 194, .3)
+        }
+
+        .sv .im {
+            height: 230px;
+            overflow: hidden
+        }
+
+        .sv:hover .ph {
+            transform: scale(1.1)
+        }
+
+        .sv .bd {
+            padding: 22px
+        }
+
+        .sv h3 {
+            font-size: 27px;
+            color: var(--dp)
+        }
+
+        .sv p {
+            color: var(--mu);
+            font-size: 14px
+        }
+
+        .ab {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center
+        }
+
+        .col {
+            position: relative;
+            height: 460px
+        }
+
+        .col .a1,
+        .col .a2 {
+            position: absolute;
+            border-radius: 200px 200px 20px 20px;
+            overflow: hidden;
+            border: 6px solid #fff;
+            box-shadow: 0 20px 44px rgba(169, 115, 194, .3)
+        }
+
+        .a1 {
+            width: 60%;
+            height: 78%;
+            left: 0;
+            top: 0
+        }
+
+        .a2 {
+            width: 50%;
+            height: 60%;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px 200px 20px 20px !important
+        }
+
+        .ab ul {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 26px
+        }
+
+        .ab li {
+            padding: 5px 0
+        }
+
+        .ab li:before {
+            content: "✿ ";
+            color: var(--li)
+        }
+
+        .ab p {
+            color: var(--mu)
+        }
+
+        .st {
+            background: linear-gradient(135deg, var(--vi), var(--li));
+            color: #fff;
+            padding: 50px 0
+        }
+
+        .sg {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 20px
+        }
+
+        .sg b {
+            display: block;
+            font: 700 52px 'Cormorant Garamond'
+        }
+
+        .sg span {
+            font-size: 13.5px;
+            opacity: .95
+        }
+
+        .of {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            border-radius: 30px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--pe), var(--pk));
+            min-height: 300px
+        }
+
+        .of>div:first-child {
+            padding: 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 12px
+        }
+
+        .of h2 {
+            font-size: clamp(34px, 5vw, 54px)
+        }
+
+        .rv {
+            background: #fff;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(169, 115, 194, .14);
+            color: var(--mu);
+            font-size: 14.5px
+        }
+
+        .rv .s {
+            color: var(--li);
+            letter-spacing: 3px
+        }
+
+        .rv b {
+            display: block;
+            color: var(--tx);
+            margin-top: 12px
+        }
+
+        .rv .q {
+            font: 700 56px/0.8 'Cormorant Garamond';
+            color: var(--pk)
+        }
+
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--bl), var(--pe));
+            border-radius: 30px;
+            padding: 60px 20px
+        }
+
+        .cta h2 {
+            font-size: clamp(34px, 5vw, 54px);
+            margin-bottom: 20px
+        }
+
+        .tb {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 34px
+        }
+
+        .tb button {
+            border: 1.5px solid var(--li);
+            background: #fff;
+            color: var(--dp);
+            font: 500 14px Poppins;
+            padding: 9px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: .3s
+        }
+
+        .tb .on {
+            background: var(--vi);
+            color: #fff;
+            border-color: var(--vi)
+        }
+
+        .pr {
+            max-width: 720px;
+            margin: auto;
+            background: #fff;
+            border-radius: 26px;
+            padding: 16px 34px;
+            box-shadow: 0 14px 40px rgba(169, 115, 194, .18)
+        }
+
+        .pr div {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px dashed var(--li)
+        }
+
+        .pr div:last-child {
+            border: 0
+        }
+
+        .pr b {
+            color: var(--dp);
+            white-space: nowrap
+        }
+
+        .nt {
+            text-align: center;
+            color: var(--mu);
+            font-size: 13px;
+            margin-top: 18px
+        }
+
+        .ms {
+            columns: 3;
+            column-gap: 18px
+        }
+
+        .ms .t {
+            break-inside: avoid;
+            margin-bottom: 18px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative
+        }
+
+        .ms .t:hover .ph {
+            transform: scale(1.12)
+        }
+
+        .ms .t span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 30px 16px 12px;
+            color: #fff;
+            font: 600 20px 'Cormorant Garamond';
+            background: linear-gradient(transparent, rgba(59, 35, 64, .65));
+            opacity: 0;
+            transition: .4s
+        }
+
+        .ms .t:hover span {
+            opacity: 1
+        }
+
+        .tm {
+            text-align: center
+        }
+
+        .av {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font: 700 40px 'Cormorant Garamond';
+            color: #fff;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 26px rgba(169, 115, 194, .3)
+        }
+
+        .cd {
+            background: #fff;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(169, 115, 194, .14)
+        }
+
+        form {
+            display: grid;
+            gap: 12px
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            font: 14.5px Poppins;
+            padding: 13px 16px;
+            border: 1.5px solid #f0d9e6;
+            border-radius: 14px;
+            background: var(--bg);
+            color: var(--tx)
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid var(--li)
+        }
+
+        .ci {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 20px
+        }
+
+        .ci i {
+            font-style: normal;
+            flex: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--pk), var(--pe));
+            font-size: 20px
+        }
+
+        .ci b {
+            display: block;
+            color: var(--dp)
+        }
+
+        .ok {
+            display: none;
+            text-align: center;
+            padding: 24px;
+            font-weight: 500;
+            color: var(--dp)
+        }
+
+        .mp {
+            height: 190px;
+            border-radius: 20px;
+            overflow: hidden
+        }
+
+        footer {
+            background: var(--tx);
+            color: #e5d4ea;
+            text-align: center;
+            padding: 36px 0;
+            font-size: 13.5px
+        }
+
+        footer .lg {
+            color: #fff;
+            font-size: 30px;
+            display: block;
+            margin-bottom: 6px
+        }
+
+        footer a {
+            color: var(--pk)
+        }
+
+        .pg {
+            animation: pg .6s ease
+        }
+
+        @keyframes pg {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+        }
+
+        .rev {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: .8s
+        }
+
+        .rev.in {
+            opacity: 1;
+            transform: none
+        }
+
+        .ph.has {
+            background-color: #fff
+        }
+
+        .ph.has:after {
+            display: none
+        }
+
+        @media(max-width:900px) {
+
+            .hg,
+            .ab,
+            .of,
+            .g2 {
+                grid-template-columns: 1fr
+            }
+
+            .g3 {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .sg {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .ms {
+                columns: 2
+            }
+
+            .bg {
+                display: block
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg);
+                padding: 16px 24px;
+                box-shadow: 0 14px 24px rgba(169, 115, 194, .2)
+            }
+
+            nav.open {
+                display: flex
+            }
+
+            .nv>.btn {
+                display: none
+            }
+
+            .of .ph {
+                height: 260px
+            }
+        }
+
+        @media(max-width:560px) {
+            .g3 {
+                grid-template-columns: 1fr
+            }
+
+            .ms {
+                columns: 1
+            }
+
+            section {
+                padding: 56px 0
+            }
+
+            .col {
+                height: 380px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .rev {
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="w nv"><a class="lg" data-p="home">Glow <b>&amp;</b> Grace</a>
+            <nav><a data-p="home">Home</a><a data-p="services">Services</a><a data-p="gallery">Gallery</a><a
+                    data-p="about">About</a><a data-p="contact">Contact</a></nav><a class="btn" data-p="contact">Book
+                Now</a><button class="bg" aria-label="Menu">☰</button>
+        </div>
+    </header>
+    <main id="app"></main>
+    <footer>
+        <div class="w"><a class="lg" data-p="home">Glow &amp; Grace</a>Beauty Parlour &amp; Bridal Studio · 12 Rose
+            Lane, City Centre · +91 98765 43210<br>© 2026 Glow &amp; Grace · Demo website by <b
+                style="color:var(--pk)">WEBHELL</b></div>
+    </footer>
+    <script>
+        const $ = s => document.querySelector(s), GR = ['linear-gradient(135deg,#FEABAB,#DB93B8)', 'linear-gradient(135deg,#DB93B8,#A973C2)', 'linear-gradient(135deg,#9DC5C5,#A973C2)', 'linear-gradient(135deg,#FFDBA5,#FEABAB)', 'linear-gradient(135deg,#9DC5C5,#FFDBA5)']; let gi = 0;
+        const ph = n => `<div class="ph" data-n="${n}.jpg" style="--i:url(assets/${n}.jpg);--g:${GR[gi++ % 5]}"></div>`;
+        const SV = [['Hair Styling', 'Cuts, colour, hair spa and smoothening by expert stylists.', 'hair'], ['Facials & Skin', 'Glow facials, clean-ups and de-tan for fresh, radiant skin.', 'skin'], ['Makeup Artistry', 'Party, engagement and HD makeup that lasts all day.', 'makeup'], ['Nail Studio', 'Manicure, pedicure, gel polish and creative nail art.', 'nails'], ['Bridal Packages', 'Pre-bridal care and complete bridal looks for your big day.', 'bridal'], ['Spa & Massage', 'Relaxing head, body and foot spa to melt the stress away.', 'spa']];
+        const sec = (s, h, p) => `<div class="sh rev"><small>${s}</small><h2>${h}</h2>${p ? `<p>${p}</p>` : ''}</div>`;
+        const sv = () => SV.map(s => `<div class="sv rev"><div class="im">${ph(s[2])}</div><div class="bd"><h3>${s[0]}</h3><p>${s[1]}</p></div></div>`).join('');
+        const cta = () => `<section><div class="w"><div class="cta rev"><h2>Ready for Your <em>Glow-Up?</em></h2><a class="btn" data-p="contact">Book an Appointment</a></div></div></section>`;
+        function home() {
+            return `<section class="hero"><i class="bb" style="width:300px;height:300px;background:#FEABAB;top:-60px;left:-60px"></i><i class="bb" style="width:260px;height:260px;background:#A973C2;bottom:-80px;right:8%;animation-delay:-4s"></i><div class="w hg"><div><span class="tag">Beauty Parlour &amp; Bridal Studio</span><h1>Where Beauty <em>Meets</em> Elegance</h1><p>Hair, skin, makeup and bridal care in a calm, hygienic space. Let our experts bring out the best version of you.</p><a class="btn" data-p="contact">Book Appointment</a> &nbsp; <a class="btn o" data-p="services">Our Services</a></div>
+<div class="aw"><div class="arch">${ph('hero')}</div><span class="fb" style="top:40px;left:-26px">✨ Glowing Skin</span><span class="fb" style="top:46%;right:-24px;animation-delay:-2s">💄 Expert Makeup</span><span class="fb" style="bottom:30px;left:-14px;animation-delay:-3s">👰 Bridal Specialists</span></div></div></section>
+<div class="mq"><div>${'<span>✿ Hair</span><span>✿ Facial</span><span>✿ Makeup</span><span>✿ Nails</span><span>✿ Bridal</span><span>✿ Spa</span>'.repeat(8)}</div></div>
+<section><div class="w">${sec('What We Do', 'Our Signature <em>Services</em>', 'Treatments made to make you feel confident and cared for.')}<div class="gr g3">${sv()}</div></div></section>
+<section style="padding-top:0"><div class="w ab"><div class="col rev"><div class="a1">${ph('about1')}</div><div class="a2">${ph('about2')}</div></div><div class="rev"><div class="sh" style="text-align:left;margin:0"><small>About Us</small><h2>Beauty Care With <em>Love</em> &amp; Skill</h2></div><p>We believe every person deserves to feel beautiful. Our trained team uses quality products and clean tools to give you results you will love.</p><ul><li>Skilled, friendly beauty experts</li><li>Branded, skin-safe products</li><li>Clean and hygienic salon</li></ul><a class="btn" data-p="about">Know More</a></div></div></section>
+<div class="st"><div class="w sg">${[[5000, '+', 'Happy Clients'], [10, '+', 'Years Experience'], [25, '+', 'Beauty Services'], [100, '%', 'Hygiene Care']].map(x => `<div><b data-c="${x[0]}" data-s="${x[1]}">0</b><span>${x[2]}</span></div>`).join('')}</div></div>
+<section><div class="w"><div class="of rev"><div><small style="letter-spacing:3px;font-weight:600">FIRST VISIT SPECIAL</small><h2>Enjoy <em>20% Off</em> on Your First Visit</h2><p>Valid on all hair, skin and nail services.</p><a class="btn" data-p="contact">Claim Offer</a></div>${ph('offer')}</div></div></section>
+<section style="padding-top:0"><div class="w">${sec('Reviews', 'Loved by Our <em>Clients</em>')}<div class="gr g3">${[['Pooja Sharma', 'My facial left my skin glowing. Staff are polite and the salon is spotless.'], ['Ritu Kapoor', 'Got my engagement makeup done here. It looked natural and lasted the whole night.'], ['Neha Mishra', 'Best hair spa in town. Relaxing atmosphere and great value for money.']].map(r => `<div class="rv rev"><div class="q">“</div>${r[1]}<div class="s" style="margin-top:10px">★★★★★</div><b>${r[0]}</b></div>`).join('')}</div></div></section>${cta()}`
+        }
+        const PR = { Hair: [['Haircut & Styling', '₹399'], ['Hair Spa', '₹799'], ['Global Hair Colour', '₹1,999'], ['Smoothening', '₹2,999']], Skin: [['Face Clean-up', '₹499'], ['Gold Facial', '₹999'], ['De-Tan Treatment', '₹699'], ['Hydra Glow Facial', '₹1,799']], Makeup: [['Party Makeup', '₹1,999'], ['HD Makeup', '₹3,499'], ['Engagement Makeup', '₹4,999'], ['Saree Draping', '₹499']], Nails: [['Manicure', '₹499'], ['Pedicure', '₹599'], ['Gel Polish', '₹799'], ['Nail Art (per nail)', '₹99']], Bridal: [['Pre-Bridal Package', '₹7,999'], ['Bridal Makeup', '₹12,999'], ['Complete Bridal Package', '₹19,999']] };
+        function services() {
+            return `<section class="hero" style="padding:50px 0 30px"><div class="w">${sec('Services', 'What We <em>Offer</em>', 'Pick a service and see our price list below.')}</div></section><section style="padding-top:30px"><div class="w"><div class="gr g3">${sv()}</div></div></section>
+<section style="padding-top:0"><div class="w">${sec('Price List', 'Simple, <em>Honest</em> Pricing')}<div class="tb">${Object.keys(PR).map((k, i) => `<button data-k="${k}" class="${i ? '' : 'on'}">${k}</button>`).join('')}</div><div class="pr" id="pr"></div><p class="nt">Sample prices for demo purposes.</p></div></section>${cta()}`
+        }
+        const pr = k => $('#pr').innerHTML = PR[k].map(x => `<div><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+        function gallery() { const H = [300, 380, 260, 340, 400, 280, 360, 300]; return `<section class="hero" style="padding:50px 0 30px"><div class="w">${sec('Gallery', 'Our <em>Work</em>', 'A peek at the looks created in our parlour.')}</div></section><section style="padding-top:30px"><div class="w ms">${H.map((h, i) => `<div class="t rev" style="height:${h}px">${ph('g' + (i + 1))}<span>${['Bridal Look', 'Wedding Curls', 'Gold Facial', 'Nail Art', 'Makeup Artistry', 'Bridal Hairstyle', 'Spa Massage', 'Our Salon'][i]}</span></div>`).join('')}</div></section>${cta()}` }
+        function about() {
+            return `<section class="hero" style="padding:50px 0 30px"><div class="w">${sec('About Us', 'Our <em>Story</em>', 'Glow &amp; Grace began with a simple idea: beauty care should feel warm, safe and personal.')}</div></section>
+<section style="padding-top:30px"><div class="w ab"><div class="col rev"><div class="a1">${ph('about1')}</div><div class="a2">${ph('about2')}</div></div><div class="rev"><h2 style="font-size:44px;margin-bottom:14px">Beauty That Feels <em>Like You</em></h2><p>From a small studio to a trusted neighbourhood parlour, we have helped thousands of clients look and feel their best. Every visit starts with listening, because your beauty is personal.</p><ul><li>Personal consultation before every service</li><li>Sterilised tools and fresh disposable kits</li><li>Special packages for brides and families</li></ul></div></div></section>
+<section style="padding-top:0"><div class="w">${sec('Our Team', 'Meet the <em>Experts</em>')}<div class="gr g3">${[['Anjali', 'Founder & Makeup Artist'], ['Rhea', 'Senior Hair Stylist'], ['Meera', 'Skin Care Specialist']].map((t, i) => `<div class="sv tm rev" style="padding:32px"><div class="av" style="background:${GR[i]}">${t[0][0]}</div><h3>${t[0]}</h3><p>${t[1]}</p></div>`).join('')}</div></div></section>${cta()}`
+        }
+        function contact() {
+            return `<section class="hero" style="padding:50px 0 30px"><div class="w">${sec('Contact', 'Book Your <em>Appointment</em>', 'Fill the form or call us. We will confirm your slot quickly.')}</div></section><section style="padding-top:30px"><div class="w gr g2"><div class="cd rev"><form id="bf"><input name="name" placeholder="Your Name" required><input name="phone" type="tel" placeholder="Phone Number" required><select name="service">${SV.map(s => `<option>${s[0]}</option>`).join('')}</select><input name="date" type="date" required><textarea name="msg" rows="3" placeholder="Anything we should know? (optional)"></textarea><button class="btn">Request Appointment</button></form><div class="ok" id="ok">✅ Thank you! We will call you shortly to confirm.</div></div>
+<div class="rev"><div class="ci"><i>📍</i><div><b>Visit Us</b>12 Rose Lane, City Centre</div></div><div class="ci"><i>📞</i><div><b>Call Us</b>+91 98765 43210</div></div><div class="ci"><i>⏰</i><div><b>Opening Hours</b>Mon–Sun: 10:00 AM – 8:00 PM</div></div><div class="mp">${ph('map')}</div></div></div></section>`
+        }
+        const P = { home, services, gallery, about, contact };
+        function hook() {
+            const io = new IntersectionObserver(a => a.forEach(x => { if (!x.isIntersecting) return; x.target.classList.add('in'); const c = x.target.querySelectorAll('[data-c]'); c.forEach(el => { let v = 0, n = +el.dataset.c; const t = setInterval(() => { v += n / 40; if (v >= n) { v = n; clearInterval(t) } el.textContent = Math.round(v).toLocaleString('en-IN') + el.dataset.s }, 35) }); io.unobserve(x.target) }), { threshold: .1 });
+            document.querySelectorAll('.rev,.st').forEach(x => io.observe(x));
+            document.querySelectorAll('.ph').forEach(el => { const m = el.style.getPropertyValue('--i').match(/url\((.*)\)/), i = new Image(); i.onload = () => el.classList.add('has'); i.src = m[1] });
+            document.querySelectorAll('.tb button').forEach(b => b.onclick = () => { document.querySelectorAll('.tb button').forEach(x => x.classList.remove('on')); b.classList.add('on'); pr(b.dataset.k) }); if ($('#pr')) pr('Hair');
+            const f = $('#bf'); if (f) f.onsubmit = e => { e.preventDefault(); f.style.display = 'none'; $('#ok').style.display = 'block' }
+        }
+        function show(k) { k = P[k] ? k : 'home'; gi = 0; const a = $('#app'); a.innerHTML = P[k](); a.className = 'pg'; document.querySelectorAll('nav a').forEach(x => x.classList.toggle('on', x.dataset.p == k)); $('nav').classList.remove('open'); scrollTo({ top: 0 }); hook() }
+        document.addEventListener('click', e => { const a = e.target.closest('[data-p]'); if (a) { e.preventDefault(); show(a.dataset.p) } if (e.target.closest('.bg')) $('nav').classList.toggle('open') });
+        addEventListener('scroll', () => $('header').classList.toggle('sc', scrollY > 10)); show((location.hash || '').slice(1));
+    </script>
+</body>
+
+</html>
